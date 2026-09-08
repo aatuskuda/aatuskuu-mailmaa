@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "aatusku-maailmaa",
+  "main": "./src/index.js",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "secrets": {
+    "required": [
+      "PAYPAL_CLIENT_ID",
+      "PAYPAL_CLIENT_SECRET",
+      "SUPABASE_URL",
+      "SUPABASE_PUBLISHABLE_KEY"
+    ]
+  }
+}
