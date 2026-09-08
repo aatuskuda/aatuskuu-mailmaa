@@ -9,10 +9,6 @@
   },
   "secrets": {
     "required": [
-      "PAYPAL_CLIENT_ID",
-      "PAYPAL_CLIENT_SECRET",
-      "SUPABASE_URL",
-      "SUPABASE_PUBLISHABLE_KEY"
-    ]
+      
   }
 }
