@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08090c">
+<title>Aatusku Maailma</title>
+<style>
+:root{--bg:#08090c;--panel:#111319;--line:#292c35;--text:#f6f7f9;--muted:#9699a5;--red:#ff3150;--green:#49d17d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 70% 0,#35101a,#08090c 38%);color:var(--text);font-family:Arial,sans-serif}a{color:inherit;text-decoration:none}
+nav{min-height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:10px 6%;gap:28px;background:#08090ceb;position:sticky;top:0;z-index:4}.logo{font-weight:900;font-size:23px}.logo span{color:var(--red)}.links{display:flex;gap:22px;color:#bbb;font-size:14px}.spacer{flex:1}button{cursor:pointer;border:0;border-radius:10px;padding:11px 16px;font-weight:800}.dark{background:#1b1e27;color:#fff}.red{background:var(--red);color:#fff}.green{background:var(--green);color:#07130b}.small{padding:8px 11px;font-size:12px}
+.hero{max-width:1150px;margin:auto;padding:75px 24px 55px}.eyebrow{color:#ff6077;text-transform:uppercase;letter-spacing:2px;font-weight:800;font-size:13px}.hero h1{font-size:clamp(48px,8vw,82px);line-height:.95;letter-spacing:-4px;margin:14px 0}.hero h1 span{color:var(--red)}.hero p{color:var(--muted);font-size:18px;line-height:1.6;max-width:650px}.heroBtns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.wrap{max-width:1150px;margin:auto;padding:0 24px 80px}.sectionTitle{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:10px 0 20px}.sectionTitle h2{margin:0}.sectionTitle p{color:var(--muted);margin:6px 0 0}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:15px}.card h3{margin:4px 0 8px}.card p{color:var(--muted);font-size:14px;line-height:1.5}.price{font-size:24px;font-weight:900;margin:14px 0}.tag{display:inline-block;font-size:11px;padding:6px 8px;border-radius:999px;background:#20232c;color:#bbb}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.empty{border:1px dashed #3b3e49;background:#101218;border-radius:18px;padding:45px 25px;text-align:center;color:var(--muted)}
+.panel{background:#0e1016;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:28px}.panel h2{margin-top:0}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin:10px 0}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field input,.field textarea{width:100%;padding:12px;border-radius:9px;border:1px solid var(--line);background:#090b10;color:#fff}.field textarea{min-height:95px;resize:vertical}.full{width:100%;margin-top:8px}.note{font-size:12px;color:var(--muted);line-height:1.5}.admin{color:#ffd36a;font-weight:800}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:45px}.step{background:var(--panel);border:1px solid var(--line);padding:22px;border-radius:15px}.step b{display:block;margin:9px 0}.step p{color:var(--muted);font-size:14px;line-height:1.5;margin:0}
+footer{border-top:1px solid var(--line);padding:25px 6%;color:var(--muted);font-size:13px}.modal{display:none;position:fixed;inset:0;background:#000c;align-items:center;justify-content:center;padding:20px;z-index:10}.modal.open{display:flex}.box{width:min(520px,100%);max-height:90vh;overflow:auto;background:#12141b;border:1px solid #343741;border-radius:18px;padding:25px}.close{float:right;background:none;color:#aaa;font-size:24px;padding:0}
+@media(max-width:800px){.products,.steps{grid-template-columns:1fr 1fr}}@media(max-width:650px){.links{display:none}.products,.steps,.formgrid{grid-template-columns:1fr}.hero{padding-top:50px}.hero h1{letter-spacing:-2px}.userText{display:none}}
+</style>
+
+<style id="mobile-responsive">
+html{overflow-x:hidden}body{min-width:0;overflow-x:hidden;-webkit-text-size-adjust:100%;padding-bottom:env(safe-area-inset-bottom)}
+button,input{font:inherit}button{min-height:44px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.field input{font-size:16px;min-height:46px}
+nav{height:auto;min-height:64px;padding:10px 16px;gap:10px;flex-wrap:wrap}.logo{font-size:19px}.links{gap:12px;font-size:13px}.nav-actions{display:flex;gap:8px;margin-left:auto}.hero{padding:58px 18px 42px}.hero h1{font-size:clamp(42px,14vw,64px);letter-spacing:-3px}.hero p{font-size:16px;line-height:1.5}.heroBtns{flex-direction:column;gap:10px}.heroBtns button{width:100%}.wrap{padding:0 16px 60px}.empty{padding:45px 18px}.steps{grid-template-columns:1fr;gap:12px}.step{padding:18px}.modal{padding:12px;align-items:flex-end}.box{width:100%;max-height:92vh;overflow:auto;border-radius:18px 18px 10px 10px;padding:20px}.full{min-height:48px}
+@media (min-width:701px){.nav-actions{display:contents}}
+@media (max-width:700px){nav .dark,nav .red{padding:10px 12px}.links{order:3;width:100%;overflow-x:auto;white-space:nowrap;padding-bottom:2px}.links a{color:#bbb}.spacer{display:none}}
+@media (max-width:380px){.logo{font-size:17px}nav .dark,nav .red{font-size:12px;padding:9px 10px}.hero h1{font-size:40px}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#">Aatusku <span>Maailma</span></a><div class="links"><a href="#market">Markkinapaikka</a><a href="#sell">Myy</a></div><div class="spacer"></div><div id="authButtons"><button class="dark" onclick="openAuth('login')">Kirjaudu</button> <button class="red" onclick="openAuth('register')">Rekisteröidy</button></div><div id="userMenu" style="display:none;align-items:center;gap:9px"><span id="welcome" class="userText" style="color:#bbb;font-size:14px"></span><button class="dark" onclick="logout()">Ulos</button></div></nav>
+<header class="hero"><div class="eyebrow">Aatusku Maailma</div><h1>Osta. Myy.<br><span>Hallitse itse.</span></h1><p>Kirjaudu sisään, lisää omat peli-itemisi myyntiin ja osta muiden tuotteita PayPalin kautta.</p><div class="heroBtns"><button class="red" onclick="goSell()">Myy tavara</button><a href="#market"><button class="dark">Selaa tuotteita</button></a></div></header>
+<main class="wrap">
+<section id="sell"><div id="sellerPanel" class="panel" style="display:none"><h2>Lisää tuote myyntiin</h2><div class="formgrid"><div class="field"><label>Tuotteen nimi</label><input id="pName" placeholder="Esim. Rare Sword"></div><div class="field"><label>Peli</label><input id="pGame" placeholder="Esim. Roblox"></div><div class="field"><label>Hinta (€)</label><input id="pPrice" type="number" min="0.01" step="0.01" placeholder="9.99"></div><div class="field"><label>PayPal.Me-linkki</label><input id="pPaypal" placeholder="https://paypal.me/kayttajanimi"></div></div><div class="field"><label>Kuvaus</label><textarea id="pDesc" placeholder="Kerro mitä myyt..."></textarea></div><button class="red" onclick="saveProduct()">Julkaise myyntiin</button><p class="note">Älä kirjoita PayPal-salasanaa tai maksukorttitietoja tähän. Lisää vain julkinen PayPal.Me-linkkisi.</p></div></section>
+<section id="market"><div class="sectionTitle"><div><h2>Markkinapaikka</h2><p id="marketHint">Kirjaudu sisään ostaaksesi tai myydäksesi.</p></div></div><div id="products" class="products"></div></section>
+<section><div class="steps"><div class="step">👤<b>1. Luo käyttäjä</b><p>Kaikki käyttäjät voivat luoda oman tilin.</p></div><div class="step">📦<b>2. Myy tavara</b><p>Lisää nimi, peli, hinta, kuvaus ja oma PayPal.Me-linkkisi.</p></div><div class="step">💳<b>3. Osta PayPalilla</b><p>Osta-painike avaa myyjän PayPal.Me-maksusivun uuteen välilehteen.</p></div></div></section>
+</main><footer>© 2026 Aatusku Maailma · Paikallinen marketplace-demo</footer>
+<div class="modal" id="modal"><div class="box"><button class="close" onclick="closeModal()">×</button><h2 id="title"></h2><div id="content"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const cfg = window.AATUSKU_CONFIG || {};
+if (!cfg.supabaseUrl || !cfg.supabasePublishableKey) {
+  document.body.insertAdjacentHTML('afterbegin',
+    '<div style="background:#7f1d1d;color:#fff;padding:12px;text-align:center;font-weight:700">Supabase-asetukset puuttuvat. Täytä config.js ennen käyttöä.</div>');
+}
+const supabase = window.supabase.createClient(cfg.supabaseUrl, cfg.supabasePublishableKey);
+let currentSession = null;
+let currentProfile = null;
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>'"]/g, m => ({
+  '&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'
+}[m]));
+
+function openAuth(type) {
+  const t=$('title'), c=$('content');
+  if (type === 'login') {
+    t.textContent='Kirjaudu';
+    c.innerHTML=`<div class="field"><label>Sähköposti</label><input id="loginEmail" type="email" autocomplete="email"></div>
+      <div class="field"><label>Salasana</label><input id="loginPassword" type="password" autocomplete="current-password"></div>
+      <button class="red full" onclick="login()">Kirjaudu sisään</button><p id="authMessage" class="note"></p>`;
+  } else {
+    t.textContent='Rekisteröidy';
+    c.innerHTML=`<div class="field"><label>Käyttäjänimi</label><input id="registerName" autocomplete="name"></div>
+      <div class="field"><label>Sähköposti</label><input id="registerEmail" type="email" autocomplete="email"></div>
+      <div class="field"><label>Salasana</label><input id="registerPassword" type="password" autocomplete="new-password" placeholder="Vähintään 6 merkkiä"></div>
+      <button class="red full" onclick="register()">Luo tili</button><p id="authMessage" class="note"></p>`;
+  }
+  $('modal').classList.add('open');
+}
+function closeModal(){ $('modal').classList.remove('open'); }
+function msg(x){ const e=$('authMessage'); if(e)e.textContent=x; }
+
+async function register(){
+  const name=$('registerName').value.trim(), email=$('registerEmail').value.trim(), password=$('registerPassword').value;
+  if(!name||!email||!password) return msg('Täytä kaikki kentät.');
+  if(password.length<6) return msg('Salasanassa pitää olla vähintään 6 merkkiä.');
+  const {data,error}=await supabase.auth.signUp({email,password,options:{data:{name}}});
+  if(error) return msg(error.message);
+  if(data.session){ await refresh(); closeModal(); }
+  else msg('Tili luotiin. Tarkista sähköpostisi, jos sähköpostivahvistus on käytössä.');
+}
+
+async function login(){
+  const email=$('loginEmail').value.trim(), password=$('loginPassword').value;
+  const {data,error}=await supabase.auth.signInWithPassword({email,password});
+  if(error) return msg(error.message);
+  currentSession=data.session; await refresh(); closeModal();
+}
+
+async function logout(){ await supabase.auth.signOut(); }
+
+async function loadProfile(){
+  if(!currentSession){ currentProfile=null; return; }
+  const {data,error}=await supabase.from('profiles').select('id,name').eq('id',currentSession.user.id).maybeSingle();
+  if(error) console.error(error);
+  currentProfile=data || {id:currentSession.user.id,name:currentSession.user.email?.split('@')[0]||'Käyttäjä'};
+}
+
+function refreshUI(){
+  const logged=!!currentSession;
+  $('authButtons').style.display=logged?'none':'block';
+  $('userMenu').style.display=logged?'flex':'none';
+  $('welcome').textContent=logged?`Hei, ${currentProfile?.name || currentSession.user.email}`:'';
+  $('sellerPanel').style.display=logged?'block':'none';
+  $('marketHint').textContent=logged?'Voit julkaista omia tuotteitasi ja ostaa muiden tuotteita.':'Kirjaudu sisään ostaaksesi tai myydäksesi.';
+}
+
+async function refresh(){
+  await loadProfile();
+  refreshUI();
+  await renderProducts();
+}
+
+async function saveProduct(){
+  if(!currentSession) return openAuth('login');
+  const name=$('pName').value.trim(), game=$('pGame').value.trim();
+  const price=Number($('pPrice').value), paypal=$('pPaypal').value.trim(), desc=$('pDesc').value.trim();
+  if(!name||!game||!desc||!Number.isFinite(price)||price<=0) return alert('Täytä kaikki pakolliset tiedot oikein.');
+  if(paypal && !validPaypal(paypal)) return alert('PayPal.Me-linkin pitää alkaa https://paypal.me/');
+  const {error}=await supabase.from('products').insert({
+    seller_id:currentSession.user.id,name,game,description:desc,price,paypal_me:paypal||null
+  });
+  if(error) return alert(error.message);
+  ['pName','pGame','pPrice','pPaypal','pDesc'].forEach(id=>$(id).value='');
+  await renderProducts(); location.hash='market';
+}
+
+function validPaypal(v){ try{const u=new URL(v);return u.protocol==='https:'&&u.hostname==='paypal.me'&&u.pathname.length>1;}catch{return false;} }
+
+async function renderProducts(){
+  const box=$('products');
+  const {data,error}=await supabase.from('products')
+    .select('id,seller_id,name,game,description,price,paypal_me,status,created_at,profiles(name)')
+    .order('created_at',{ascending:false});
+  if(error){ box.innerHTML=`<div class="empty" style="grid-column:1/-1">Tuotteiden lataus epäonnistui: ${esc(error.message)}</div>`; return; }
+  if(!data?.length){ box.innerHTML='<div class="empty" style="grid-column:1/-1">Ei tuotteita vielä. Lisää ensimmäinen myynti-ilmoitus.</div>'; return; }
+  box.innerHTML=data.map(p=>{
+    const owner=currentSession && currentSession.user.id===p.seller_id;
+    const seller=p.profiles?.name || 'Myyjä';
+    return `<article class="card"><span class="tag">${esc(p.game)}</span><h3>${esc(p.name)}</h3>
+      <p>${esc(p.description)}</p><div class="price">${Number(p.price).toFixed(2)} €</div><p>Myyjä: ${esc(seller)}</p>
+      <div class="actions">
+      ${currentSession&&!owner?`<button class="green" onclick="buyProduct('${p.id}')">Osta PayPalilla</button>`:''}
+      ${!currentSession?`<button class="green" onclick="openAuth('login')">Kirjaudu ostaaksesi</button>`:''}
+      ${owner?`<button class="dark small" onclick="editProduct('${p.id}')">Muokkaa</button><button class="red small" onclick="deleteProduct('${p.id}')">Poista</button>`:''}
+      </div></article>`;
+  }).join('');
+}
+
+async function buyProduct(id){
+  if(!currentSession)return openAuth('login');
+  const {data:p,error}=await supabase.from('products').select('id,seller_id,name,price').eq('id',id).single();
+  if(error||!p)return alert('Tuotetta ei löytynyt.');
+  if(p.seller_id===currentSession.user.id)return alert('Et voi ostaa omaa tuotettasi.');
+  if(!confirm(`Aloitetaanko ${Number(p.price).toFixed(2)} € PayPal-maksu tuotteesta "${p.name}"?`))return;
+  try{
+    const session=await supabase.auth.getSession();
+    const r=await fetch('/api/create-order',{method:'POST',headers:{
+      'Content-Type':'application/json','Authorization':`Bearer ${session.data.session.access_token}`
+    },body:JSON.stringify({productId:id})});
+    const body=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(body.error||'PayPal-tilauksen luonti epäonnistui.');
+    const approve=(body.links||[]).find(x=>x.rel==='approve');
+    if(!approve?.href) throw new Error('PayPal ei palauttanut maksulinkkiä.');
+    window.location.href=approve.href;
+  }catch(e){alert(e.message);}
+}
+
+async function deleteProduct(id){
+  const {data}=await supabase.from('products').select('id').eq('id',id).eq('seller_id',currentSession.user.id).single();
+  if(!data)return alert('Ei oikeutta tähän ilmoitukseen.');
+  if(confirm('Poistetaanko tämä myynti-ilmoitus?')){
+    const {error}=await supabase.from('products').delete().eq('id',id).eq('seller_id',currentSession.user.id);
+    if(error)alert(error.message); else renderProducts();
+  }
+}
+
+async function editProduct(id){
+  const {data:p,error}=await supabase.from('products').select('*').eq('id',id).eq('seller_id',currentSession.user.id).single();
+  if(error||!p)return alert('Ei oikeutta tähän ilmoitukseen.');
+  $('title').textContent='Muokkaa ilmoitusta';
+  $('content').innerHTML=`<div class="field"><label>Tuotteen nimi</label><input id="eName" value="${esc(p.name)}"></div>
+    <div class="field"><label>Peli</label><input id="eGame" value="${esc(p.game)}"></div>
+    <div class="field"><label>Hinta (€)</label><input id="ePrice" type="number" min="0.01" step="0.01" value="${esc(p.price)}"></div>
+    <div class="field"><label>PayPal.Me-linkki</label><input id="ePaypal" value="${esc(p.paypal_me||'')}"></div>
+    <div class="field"><label>Kuvaus</label><textarea id="eDesc">${esc(p.description)}</textarea></div>
+    <button class="red full" onclick="updateProduct('${p.id}')">Tallenna muutokset</button>`;
+  $('modal').classList.add('open');
+}
+
+async function updateProduct(id){
+  const name=$('eName').value.trim(),game=$('eGame').value.trim(),desc=$('eDesc').value.trim();
+  const price=Number($('ePrice').value),paypal=$('ePaypal').value.trim();
+  if(!name||!game||!desc||price<=0)return alert('Täytä kaikki tiedot oikein.');
+  if(paypal&&!validPaypal(paypal))return alert('PayPal.Me-linkin pitää alkaa https://paypal.me/');
+  const {error}=await supabase.from('products').update({
+    name,game,description:desc,price,paypal_me:paypal||null
+  }).eq('id',id).eq('seller_id',currentSession.user.id);
+  if(error)return alert(error.message);
+  closeModal(); await renderProducts();
+}
+
+function goSell(){ if(!currentSession)return openAuth('login'); $('sellerPanel').scrollIntoView({behavior:'smooth'}); }
+
+supabase.auth.onAuthStateChange(async (_event,session)=>{
+  currentSession=session;
+  await refresh();
+});
+refresh();
+(async()=>{
+  const params=new URLSearchParams(location.search);
+  if(params.get('paypal')==='success') {
+    const orderID=params.get('token');
+    if(orderID && currentSession){
+      try{
+        const s=await supabase.auth.getSession();
+        const r=await fetch('/api/capture-order',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${s.data.session.access_token}`},body:JSON.stringify({orderID})});
+        const d=await r.json().catch(()=>({}));
+        alert(r.ok && d.status==='COMPLETED' ? 'Maksu onnistui.' : 'PayPal palautti maksun, mutta vahvistus epäonnistui.');
+      }catch(e){alert('Maksun vahvistaminen epäonnistui.');}
+    }
+    history.replaceState({},'',location.pathname);
+  }
+})();
+</script>
+</body></html>
